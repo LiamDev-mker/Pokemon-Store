@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import Header from "./Components/Header";
 import PokemonCard from "./Components/PokemonCard";
 import axios from "axios";
 export default function App() {
@@ -6,6 +7,7 @@ export default function App() {
   const [cargando, setCargando] = useState(true);
   const [cart, setCart] = useState([]);
 
+  //Cargar pokemones al montar el componente
   useEffect(() => {
     const cargarPokemones = async () => {
       try {
@@ -62,6 +64,12 @@ export default function App() {
 
     cargarPokemones();
   }, []);
+
+  //Memorizar el precio del carrito para evitar re-cálculos innecesarios
+  const totalPrice = useMemo(() => {
+    return cart.reduce((total, poke) => total + poke.precio, 0);
+  }, [cart]);
+
   if (cargando) {
     return (
       <div className="text-center text-black font-press-start">Cargando...</div>
@@ -69,42 +77,25 @@ export default function App() {
   }
   return (
     <>
-      <div className="p-4 text-white bg-red-500">
-        <div className="flex items-center justify-between w-full">
-          <div className="flex-1"></div>
-          <h1 className="flex-1 text-2xl text-center font-press-start">
-            PokeStore
-          </h1>
-          <div className="flex items-center justify-end flex-1">
-            <span className="flex items-center text-xs font-press-start">
-              Pineda Castillejos Liam
-            </span>
-            <div className="ml-2 rounded-full w-14 h-14">
-              <img
-                src="/src/assets/foto-pokeStore.jpg"
-                className="object-cover w-full h-full rounded-full"
-              />
-            </div>
+      <div className="bg-gradient-to-b from-primarybg to-secondary">
+        <Header />
+        <div className="grid grid-cols-3 gap-4 p-4 text-amber-400 font-press-start">
+          {pokemon.map((poke, index) => (
+            <PokemonCard
+              key={poke.name}
+              name={poke.name}
+              id={index + 1}
+              image={poke.sprites.other["official-artwork"].front_default}
+              price={poke.precio}
+              onAddToCart={() => setCart([...cart, poke])}
+            />
+          ))}
+          <div className="h-20"></div>
+          <div className="fixed z-50 -translate-x-1/2 bottom-8 left-1/2">
+            <button className="px-10 py-2 text-white border border-black rounded-full shadow-sm bg-cartButton font-press-start hover:cursor-pointer">
+              Complete Purchase: [{cart.length}] - ${totalPrice.toFixed(2)}
+            </button>
           </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-3 gap-4 p-4 text-amber-400 bg-gradient-to-b from-primarybg to-secondary font-press-start">
-        {pokemon.map((poke, index) => (
-          <PokemonCard
-            key={poke.name}
-            name={poke.name}
-            id={index + 1}
-            image={poke.sprites.other["official-artwork"].front_default}
-            price={poke.precio}
-            onAddToCart={() => setCart([...cart, poke])}
-          />
-        ))}
-        <div className="h-20"></div>
-        <div className="fixed z-50 -translate-x-1/2 bottom-8 left-1/2">
-          <button className="px-10 py-2 text-white rounded-full shadow-lg bg-cartButton font-press-start hover:cursor-pointer">
-            Finalizar compra [{cart.length}]
-          </button>
         </div>
       </div>
     </>
