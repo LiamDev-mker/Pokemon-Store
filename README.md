@@ -15,11 +15,11 @@ Esta aplicación muestra una lista de pokemones y permite agregarlos a un carrit
   -Consumo de la PokeAPI
 
 ## Instalación
-  1.- Clona el repositorio:
+  1. Clona el repositorio:
       git clone https://github.com/LiamDev-mker/Pokemon-Store.git
-  2.- Instala las dependencias:
+  2. Instala las dependencias:
       npm install
-  3.- Inicia el proyecto: 
+  3. Inicia el proyecto: 
       npm run dev
 
       
