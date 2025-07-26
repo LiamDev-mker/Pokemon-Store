@@ -91,8 +91,8 @@ export default function App() {
             />
           ))}
           <div className="h-20"></div>
-          <div className="fixed z-50 -translate-x-1/2 bottom-8 left-1/2">
-            <button className="px-10 py-2 text-white border border-black rounded-full shadow-sm bg-cartButton font-press-start hover:cursor-pointer">
+          <div className="fixed z-50 -translate-x-1/2 bottom-2 left-1/2">
+            <button className="px-10 py-2 text-white rounded-full shadow-sm bg-cartButton font-press-start hover:cursor-pointer">
               Complete Purchase: [{cart.length}] - ${totalPrice.toFixed(2)}
             </button>
           </div>

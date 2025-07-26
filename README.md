@@ -1,12 +1,28 @@
-# React + Vite
+#POKEMON STORE
+Este proyecto es de una tienda Pokemon utilizando la PokeAPI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## DESCRIPCIÓN
+Esta aplicación muestra una lista de pokemones y permite agregarlos a un carrito para posteriormente realizar una compra(simulada).
+## HERRAMIENTAS/TECNOLOGÍAS UTILIZADAS
+  -React + Vite
+  -JavaScript
+  -TailwindCss
+  -PokeAPI
+## CARACTERÍSTICAS
+  -Listado de Pokemones con imágenes e información adicional acerca de ellos.
+  -Carrito de Compras funcional
+  -Interfaz moderna
+  -Consumo de la PokeAPI
 
-Currently, two official plugins are available:
+## Instalación
+  1. Clona el repositorio:
+      git clone https://github.com/LiamDev-mker/Pokemon-Store.git
+  2. Instala las dependencias:
+      npm install
+  3. Inicia el proyecto: 
+      npm run dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+      
+  ## Créditos
+- [PokéAPI](https://pokeapi.co/)
+- Realizado por: Pineda Castillejos Liam.
