@@ -1,9 +1,9 @@
 @font-face {
   font-family: Press Start;
-  src: url("../src/assets/fonts/PressStart2P-Regular.ttf");
+  src: url('../src/assets/fonts/PressStart2P-Regular.ttf');
 }
 
-@import "tailwindcss";
+@import 'tailwindcss';
 @theme {
   --color-primarybg: #090d33;
   --color-secondary: #400042;
@@ -13,5 +13,9 @@
   --color-cartButton: #0fd6ec;
   --color-id: #f0a453;
   --color-price: #c2c9fb;
+  --color-headerPrimary: #43204a;
+  --color-headerSecondary: #7f1e47;
+  --color-headerFade: #fb6625;
+
   --font-press-start: Press Start, sans-serif;
 }
